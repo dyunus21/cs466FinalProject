@@ -1,0 +1,135 @@
+.Header {
+    justify-content: left;
+    justify-self: left;
+    justify-items: left;
+    padding-left: 10%;
+    margin-top: 10pt;
+    /* position: absolute; */
+    color: black;
+    font-weight: bolder;
+  }
+
+  .paragraph {
+    justify-content: left;
+    justify-self: left;
+    justify-items: left;
+    /* position: absolute; */
+    padding-left: 2%;
+    color: black;
+
+  }
+  .sequence-input {
+    flex-direction: column;
+    flex: 1;
+    display: flex;
+    justify-self: left;
+    justify-items: left;
+    justify-content: left;
+    margin-left: 15pt;
+    padding-top:10pt;
+    margin-top: 10pt;
+    
+  }
+
+  .score-input {
+    flex-direction: row;
+    flex: 1;
+    display: flex;
+    justify-self: left;
+    justify-items: left;
+    justify-content: left;
+    padding-top:10pt;
+    margin-top: 10pt;
+  }
+  .score-col {
+    flex-direction: col;
+    /* flex: 1; */
+    display: flex;
+    justify-self: left;
+    justify-items: left;
+    justify-content: left;
+  }
+
+  .score {
+    width:50pt;
+    height:30pt;
+    margin-top: 10pt;
+    margin-right:30pt;
+  }
+
+  .sequence-row {
+    flex-direction: row;
+    flex: 1;
+    display: flex;
+    justify-self: left;
+    justify-items: left;
+    justify-content: left;
+  }
+
+  .seq {
+    width:300pt;
+    height:20pt;
+    margin-top: 10pt;
+  }
+
+  .dropdown-div {
+    flex-direction: row;
+    flex: 1;
+    display: flex;
+    justify-self: left;
+    justify-items: left;
+    justify-content: left;
+    margin-top: 30pt;
+    width:40pt;
+  }
+
+  .dropdown {
+    width: 300px;
+    height: 50px;
+    border: 1px solid #ccc;
+  }
+
+  .action-button {
+    margin-left:10px;
+    width: 900px;
+    height: 50px;
+  }
+
+  .grid {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 80%;
+    height:450px;
+    border: 1px solid black;
+    border-color: black;
+  }
+
+  .result-grid {
+    /* flex-direction: column; */
+    flex: 1;
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    justify-self: left;
+    justify-items: left;
+    justify-content: left;
+    margin-left: 15pt;
+    /* padding-top:10pt; */
+    /* margin-top: 10pt; */
+    /* padding: 10px; */
+  }
+  .result-row {
+    flex: 1;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+  }
+
+  .score {
+    font-weight: bold;
+  }
+
+  .Home {
+    flex-direction: column;
+  }
+  
