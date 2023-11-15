@@ -25,7 +25,7 @@ function calculateGlobalAlignment(v, w, pointers) {
     } else if (di === TOP[0] && dj === TOP[1]) {
       alignedV.push(v[i - 1]);
       alignedW.push("-");
-    } else if (di == DIAG[0] && dj === DIAG[1]) {
+    } else if (di === DIAG[0] && dj === DIAG[1]) {
       alignedV.push(v[i - 1]);
       alignedW.push(w[j - 1]);
     }
@@ -103,7 +103,7 @@ function calculateFittingAlignment(v, w, init_j, pointers) {
     } else if (di === TOP[0] && dj === TOP[1]) {
       alignedV.push(v[i - 1]);
       alignedW.push("-");
-    } else if (di == DIAG[0] && dj === DIAG[1]) {
+    } else if (di === DIAG[0] && dj === DIAG[1]) {
       alignedV.push(v[i - 1]);
       alignedW.push(w[j - 1]);
     }
@@ -196,7 +196,7 @@ function calculateLocalAlignment(v, w, init_i, init_j, M, pointers) {
     } else if (di === TOP[0] && dj === TOP[1]) {
       alignedV.push(v[i - 1]);
       alignedW.push("-");
-    } else if (di == DIAG[0] && dj === DIAG[1]) {
+    } else if (di === DIAG[0] && dj === DIAG[1]) {
       alignedV.push(v[i - 1]);
       alignedW.push(w[j - 1]);
     }

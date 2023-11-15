@@ -11,7 +11,7 @@ const MainPage = () => {
       <div className="paragraph" style={{ fontSize: 15 }}>
         For our project, we are doing an implementation-based project to extend
         the Needleman-Wunsch aligner from{" "}
-        <a>https://github.com/drdrsh/Needleman-Wunsch</a> to support fitting
+        <a href="https://github.com/drdrsh/Needleman-Wunsch">https://github.com/drdrsh/Needleman-Wunsch</a> to support fitting
         alignments and local alignments. We found this tool helpful for
         visualizing how the global alignment recurrence is implemented,
         especially in how each value builds on those around it. By implementing
