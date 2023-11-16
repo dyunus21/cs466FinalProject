@@ -51,7 +51,7 @@
   }
 
   .score {
-    width:50pt;
+    width:100pt;
     height:30pt;
     margin-top: 10pt;
     margin-right:30pt;
@@ -105,13 +105,13 @@
   }
 
   .result-grid {
-    /* flex-direction: column; */
+    flex-direction: row;
     flex: 1;
-    display: inline-grid;
-    grid-template-columns: auto auto auto;
-    justify-self: left;
+    display: flex;
+    /* grid-template-columns: auto auto auto; */
+    /* justify-self: left;
     justify-items: left;
-    justify-content: left;
+    justify-content: left; */
     margin-left: 15pt;
     /* padding-top:10pt; */
     /* margin-top: 10pt; */
@@ -121,10 +121,13 @@
     flex: 1;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
   }
 
+  .scroll-together {
+    overflow-x: scroll;
+  }
+  
   .score {
     font-weight: bold;
   }
