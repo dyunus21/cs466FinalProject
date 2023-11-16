@@ -123,13 +123,13 @@ const MainPage = () => {
               <tr>
                 <td> </td>
                 <td>-</td>
-              {optimalAlignment[0].split('').map((ele, index) => (
+              {sequence2.split('').map((ele, index) => (
                 <td key={index} className="result-row">{ele}</td>
               ))}
               </tr>
               {Object.keys(result).map((rowIndex) => (
                 <tr key={rowIndex}>
-                  <td>{ rowIndex == 0 ? '-' : optimalAlignment[1][rowIndex - 1]}</td>
+                  <td>{ rowIndex == 0 ? '-' : sequence1[rowIndex-1]}</td>
                   {Object.keys(result[rowIndex]).map((colIndex) => (
                     <td key={colIndex}>
                       {result[rowIndex][colIndex][0]}
