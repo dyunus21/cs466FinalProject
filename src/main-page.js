@@ -129,10 +129,28 @@ const MainPage = () => {
               </tr>
               {Object.keys(result).map((rowIndex) => (
                 <tr key={rowIndex}>
-                  <td>{ rowIndex == 0 ? '-' : sequence1[rowIndex-1]}</td>
+                  <td>{ rowIndex == 0 ? '-' : sequence1[rowIndex - 1]}</td>
                   {Object.keys(result[rowIndex]).map((colIndex) => (
-                    <td key={colIndex}>
+                    <td key={colIndex} className="gridcell">
                       {result[rowIndex][colIndex][0]}
+                      {rowIndex > 0 && colIndex > 0 && <span className="scoredetails">
+                        <table>
+                          <tr>
+                            <td> Score from diagonal cell:
+                              {(sequence1[rowIndex - 1] === sequence2[colIndex - 1]) ?
+                                result[rowIndex - 1][colIndex - 1][0] + " + " + matchScore + " = " + result[rowIndex][colIndex][3] +
+                                " (Match between " + sequence1[rowIndex - 1] + " and " + sequence2[colIndex - 1] + ")"
+                                : result[rowIndex - 1][colIndex - 1][0] + " + " + mismatchScore + " = " + result[rowIndex][colIndex][3] +
+                                " (Mismatch between " + sequence1[rowIndex - 1] + " and " + sequence2[colIndex - 1] + ")"}
+                            </td>
+                            <td> Score from top cell: {result[rowIndex - 1][colIndex][0]} + {gapScore} = {result[rowIndex][colIndex][2]} </td>
+                          </tr>
+                          <tr>
+                            <td> Score from left cell: {result[rowIndex][colIndex - 1][0]} + {gapScore} = {result[rowIndex][colIndex][1]} </td>
+                            <td> <b> Best Score: {result[rowIndex][colIndex][0]} </b></td>
+                          </tr>
+                        </table>
+                      </span>}
                     </td>
                   ))}
                 </tr>

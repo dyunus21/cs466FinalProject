@@ -104,6 +104,32 @@
     border-color: black;
   }
 
+  .gridcell:hover {
+    background-color: aqua;
+  }
+  
+  .gridcell:hover span {
+    transform: translateY(-20%) scale(1) translateX(10%);
+  }
+
+  .gridcell {
+    position: relative;
+  }
+
+  .scoredetails {
+    position: absolute;
+    top: 0;
+    transform: translateY(-20%) scale(0);
+    transition: transform 0.1s ease-in;
+    transform-origin: left;
+    display: inline;
+    background: white;
+    z-index: 20;
+    min-width: 300px;
+    padding: 5px;
+    border: 1px solid black;
+  }
+
   .result-grid {
     flex-direction: row;
     flex: 1;
