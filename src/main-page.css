@@ -140,6 +140,11 @@
   .gridcell-optimal-neighbor {
     background-color: lightblue;
   }
+
+  .gridcell-optimal:hover span {
+    transform: translateY(-20%) scale(1) translateX(10%);
+  }
+
   
   .scoredetails {
     position: absolute;

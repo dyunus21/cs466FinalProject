@@ -227,8 +227,7 @@ const MainPage = () => {
                       {rowIndex > 0 && colIndex > 0 && <span className="scoredetails">
                         <table>
                           <tr>
-                            <td> Score from diagonal cell:
-                              {(sequence1[rowIndex - 1] === sequence2[colIndex - 1]) ?
+                            <td> Score from diagonal cell: {(sequence1[rowIndex - 1] === sequence2[colIndex - 1]) ?
                                 result[rowIndex - 1][colIndex - 1][0] + " + " + matchScore + " = " + result[rowIndex][colIndex][3] +
                                 " (Match between " + sequence1[rowIndex - 1] + " and " + sequence2[colIndex - 1] + ")"
                                 : result[rowIndex - 1][colIndex - 1][0] + " + " + mismatchScore + " = " + result[rowIndex][colIndex][3] +
