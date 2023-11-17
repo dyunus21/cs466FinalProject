@@ -45,6 +45,11 @@ const MainPage = () => {
     setResult(functionRes[0]);
     setOptimalAlignment(functionRes[1]);
     setScore(functionRes[2]);
+    setInitRow(functionRes[3]);
+    setInitCol(functionRes[4]);
+    setEndRow(functionRes[5]);
+    setEndCol(functionRes[6]);
+    setPath(functionRes[7]);
   };
 
   const handleDropdownChange = (e) => {
@@ -56,8 +61,88 @@ const MainPage = () => {
     setResult(functionRes[0]);
     setOptimalAlignment(functionRes[1]);
     setScore(functionRes[2]);
+    setInitRow(functionRes[3]);
+    setInitCol(functionRes[4]);
+    setEndRow(functionRes[5]);
+    setEndCol(functionRes[6]);
+    setPath(functionRes[7]);
   };
 
+  const handleCellHover = (event, rowIndex, colIndex) => {
+    let leftCell = document.querySelector(`.gridcell[data-row="${rowIndex}"][data-col="${colIndex - 1}"]`);
+    if (leftCell) {
+      leftCell.classList.add('gridcell-neighbor');
+      leftCell.classList.remove('gridcell');
+    } else {
+      leftCell = document.querySelector(`.gridcell-optimal[data-row="${rowIndex}"][data-col="${colIndex - 1}"]`);
+      if (leftCell) {
+        leftCell.classList.add('gridcell-optimal-neighbor');
+        leftCell.classList.remove('gridcell-optimal');
+      }
+    }
+  
+    let aboveCell = document.querySelector(`.gridcell[data-row="${rowIndex - 1}"][data-col="${colIndex}"]`);
+    if (aboveCell) {
+      aboveCell.classList.add('gridcell-neighbor');
+      aboveCell.classList.remove('gridcell');
+    } else {
+      aboveCell = document.querySelector(`.gridcell-optimal[data-row="${rowIndex - 1}"][data-col="${colIndex}"]`);
+      if (aboveCell) {
+        aboveCell.classList.add('gridcell-optimal-neighbor');
+        aboveCell.classList.remove('gridcell-optimal');
+      }
+    }
+  
+    let diagonalCell = document.querySelector(`.gridcell[data-row="${rowIndex - 1}"][data-col="${colIndex - 1}"]`);
+    if (diagonalCell) {
+      diagonalCell.classList.add('gridcell-neighbor');
+      diagonalCell.classList.remove('gridcell');
+    } else {
+      diagonalCell = document.querySelector(`.gridcell-optimal[data-row="${rowIndex - 1}"][data-col="${colIndex - 1}"]`);
+      if (diagonalCell) {
+        diagonalCell.classList.add('gridcell-optimal-neighbor');
+        diagonalCell.classList.remove('gridcell-optimal');
+      }
+    }
+  };
+
+  const handleCellExit = (event, rowIndex, colIndex) => {
+    let leftCell = document.querySelector(`.gridcell-neighbor[data-row="${rowIndex}"][data-col="${colIndex - 1}"]`);
+    if (leftCell) {
+      leftCell.classList.add('gridcell');
+      leftCell.classList.remove('gridcell-neighbor');
+    } else {
+      leftCell = document.querySelector(`.gridcell-optimal-neighbor[data-row="${rowIndex}"][data-col="${colIndex - 1}"]`);
+      if (leftCell) {
+        leftCell.classList.add('gridcell-optimal');
+        leftCell.classList.remove('gridcell-optimal-neighbor');
+      }
+    }
+  
+    let aboveCell = document.querySelector(`.gridcell-neighbor[data-row="${rowIndex - 1}"][data-col="${colIndex}"]`);
+    if (aboveCell) {
+      aboveCell.classList.add('gridcell');
+      aboveCell.classList.remove('gridcell-neighbor');
+    } else {
+      aboveCell = document.querySelector(`.gridcell-optimal-neighbor[data-row="${rowIndex - 1}"][data-col="${colIndex}"]`);
+      if (aboveCell) {
+        aboveCell.classList.add('gridcell-optimal');
+        aboveCell.classList.remove('gridcell-optimal-neighbor');
+      }
+    }
+  
+    let diagonalCell = document.querySelector(`.gridcell-neighbor[data-row="${rowIndex - 1}"][data-col="${colIndex - 1}"]`);
+    if (diagonalCell) {
+      diagonalCell.classList.add('gridcell');
+      diagonalCell.classList.remove('gridcell-neighbor');
+    } else {
+      diagonalCell = document.querySelector(`.gridcell-optimal-neighbor[data-row="${rowIndex - 1}"][data-col="${colIndex - 1}"]`);
+      if (diagonalCell) {
+        diagonalCell.classList.add('gridcell-optimal');
+        diagonalCell.classList.remove('gridcell-optimal-neighbor');
+      }
+    }
+  };
 
   return (
     <div className="Home" id="Home">
@@ -121,17 +206,23 @@ const MainPage = () => {
           <table>
             <tbody>
               <tr>
-                <td> </td>
-                <td>-</td>
+                <td className="grid-empty"> </td>
+                <td className="grid-empty"></td>
               {sequence2.split('').map((ele, index) => (
-                <td key={index} className="result-row">{ele}</td>
+                <td key={index} className="grid-label">{ele}</td>
               ))}
               </tr>
               {Object.keys(result).map((rowIndex) => (
                 <tr key={rowIndex}>
-                  <td>{ rowIndex == 0 ? '-' : sequence1[rowIndex - 1]}</td>
+                  <td className={rowIndex === "0" ? "grid-empty" : "grid-label"}>{ sequence1[rowIndex - 1] }</td>
                   {Object.keys(result[rowIndex]).map((colIndex) => (
-                    <td key={colIndex} className="gridcell">
+                    <td key={colIndex} 
+                      className={path.some(pair => String(pair[0]) === rowIndex && String(pair[1]) === colIndex) ? "gridcell-optimal" : "gridcell"} 
+                      onMouseEnter={(event) => handleCellHover(event, parseInt(rowIndex), parseInt(colIndex))}
+                      onMouseLeave={(event) => handleCellExit(event, parseInt(rowIndex), parseInt(colIndex))}
+                      data-row={rowIndex}
+                      data-col={colIndex}
+                      >
                       {result[rowIndex][colIndex][0]}
                       {rowIndex > 0 && colIndex > 0 && <span className="scoredetails">
                         <table>

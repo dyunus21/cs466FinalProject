@@ -104,10 +104,22 @@
     border-color: black;
   }
 
+  .grid-label {
+    background-color: orange;
+  }
+
+  .grid-empty {
+    background-color: lightgrey;
+  }
+
   .gridcell:hover {
-    background-color: aqua;
+    background-color: burlywood;
   }
   
+  .gridcell-neighbor {
+    background-color: lightblue;
+  }
+
   .gridcell:hover span {
     transform: translateY(-20%) scale(1) translateX(10%);
   }
@@ -116,6 +128,19 @@
     position: relative;
   }
 
+  .gridcell-optimal {
+    position: relative;
+    background-color: lightgreen;
+  }
+
+  .gridcell-optimal:hover {
+    background-color: burlywood;
+  }
+
+  .gridcell-optimal-neighbor {
+    background-color: lightblue;
+  }
+  
   .scoredetails {
     position: absolute;
     top: 0;
@@ -153,7 +178,7 @@
   .scroll-together {
     overflow-x: scroll;
   }
-  
+
   .score {
     font-weight: bold;
   }

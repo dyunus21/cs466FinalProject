@@ -8,7 +8,6 @@ const DIR_NAME = {
     DIAG: "DIAG",
     ORIGIN: "ORIGIN",
 };
-const keys = ["A", "C", "T", "G", "-"];
 
 function calculateGlobalAlignment(v, w, pointers) {
     let i = v.length;
@@ -33,6 +32,7 @@ function calculateGlobalAlignment(v, w, pointers) {
         i += di;
         j += dj;
     }
+    path.push([i, j]);
 
     return [[alignedV.reverse().join(""), alignedW.reverse().join("")], path];
 }
@@ -114,6 +114,7 @@ function calculateFittingAlignment(v, w, init_j, pointers) {
         i += di;
         j += dj;
     }
+    path.push([i, j]);
 
     return [[alignedV.reverse().join(""), alignedW.reverse().join("")], path];
 }
@@ -210,6 +211,7 @@ function calculateLocalAlignment(v, w, init_i, init_j, M, pointers) {
         i += di;
         j += dj;
     }
+    path.push([i, j]);
 
     return [[alignedV.reverse().join(""), alignedW.reverse().join("")], path];
 }
