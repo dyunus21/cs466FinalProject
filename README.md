@@ -4,3 +4,16 @@ This project extends the Needleman-Wunsch aligner by Mostafa Abdelraouf ([github
 ## Installation
 Within the project directory, run `npm install` to install necessary dependencies and  `npm start` to run the application.   
 Navigate to http://localhost:3000/ to view the project in your browser.
+### Dependencies
+1. python@3.9.6
+2. npm@10.2.0
+3. @emotion/react@11.11.1
+4. @emotion/styled@11.11.0
+5. @mui/material@5.14.18
+6. @testing-library/jest-dom@5.17.0
+7. @testing-library/react@13.4.0
+8. @testing-library/user-event@13.5.0
+9. react-dom@18.2.0
+10. react-scripts@5.0.1
+11. react@18.2.0
+12. web-vitals@2.1.4
